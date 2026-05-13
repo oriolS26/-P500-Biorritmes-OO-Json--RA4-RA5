@@ -11,7 +11,7 @@ class Biorritme {
         $this->nom = htmlspecialchars($nom);
     }
  
-    public function getNom() {1
+    public function getNom() {
         return $this->nom;
     }
 

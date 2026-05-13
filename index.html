@@ -4,54 +4,103 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Biorritmes personals</title>
-    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #030712; /* Color fons fosc profund */
+      }
+      .glass-card {
+        background-color: #111827;
+        border: 1px solid #1f2937;
+      }
+      .inner-card {
+        background-color: #0b0f1a;
+      }
+    </style>
   </head>
-  <body>
+  <body class="flex items-center justify-center min-h-screen p-4">
     
-        <div>
-          <section>
-            
-             <div>
-              <h1 >Descobreix el teu estat energètic</h1>
-              <p>Els cicles físic, emotiu i intel·lectual es mouen en ritmes constants. Calcula el teu biorritme per saber quins dies ets més fort, més sensible i més inspirat.</p>
-            </div>
-            <div></div>
-                <p >Físic</p>
-                <p >23 dies</p>
-              </div>
-              <div >
-                <p >Emotiu</p>
-                <p >28 dies</p>
-              </div>
-              <div >
-                <p >Intel·lectual</p>
-                <p >33 dies</p>
-              </div>
-            </div>
-          </section>
-
-          <section >
-            <div >
-              <h2 >Calcula el teu biorritme</h2>
-              <p >Introdueix el teu nom i la teva data de naixement per veure el teu estat actual.</p>
-            </div>
-            <form action="resultat.php" method="post" >
-              <label >
-                <span >Nom d'usuari</span>
-                <input type="text" name="nomusuari" id="nomusuari" required placeholder="Escriu el teu nom"  />
-              </label>
-              <label >
-                <span >Data de naixement</span>
-                <input type="date" name="datanaixement" id="datanaixement" required  />
-              </label>
-              <button type="submit" >Calcula ara</button>
-            </form>
-            <div >
-              <p >Tip: guarda el resultat i compara el teu estat amb diferents dates.</p>
-            </div>
-          </section>
+    <div class="glass-card w-full max-w-5xl rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl flex flex-col md:flex-row gap-12">
+      
+      <!-- Secció Esquerra: Introducció -->
+      <section class="flex-1">
+        <div class="inline-flex items-center gap-2 bg-blue-900/30 text-blue-400 px-4 py-1 rounded-full text-sm mb-8">
+          <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+          Biorritmes i ritme humà
         </div>
-      </div>
+        
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+          Descobreix el teu estat energètic
+        </h1>
+        
+        <p class="text-gray-400 text-lg mb-10 max-w-md">
+          Els cicles físic, emotiu i intel·lectual es mouen en ritmes constants. Calcula el teu biorritme per saber quins dies ets més fort, més sensible i més inspirat.
+        </p>
+
+        <!-- Targetes de cicles -->
+        <div class="grid grid-cols-3 gap-4">
+          <div class="inner-card p-4 rounded-3xl text-center shadow-lg">
+            <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Físic</p>
+            <p class="text-xl font-bold text-emerald-400">23 dies</p>
+          </div>
+          <div class="inner-card p-4 rounded-3xl text-center shadow-lg">
+            <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Emotiu</p>
+            <p class="text-xl font-bold text-cyan-400">28 dies</p>
+          </div>
+          <div class="inner-card p-4 rounded-3xl text-center shadow-lg">
+            <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">Intel·lectual</p>
+            <p class="text-xl font-bold text-purple-400">33 dies</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secció Dreta: Formulari -->
+      <section class="flex-1 inner-card rounded-[2rem] p-8 md:p-10 shadow-inner">
+        <h2 class="text-2xl font-bold mb-2">Calcula el teu biorritme</h2>
+        <p class="text-gray-500 text-sm mb-8">
+          Introdueix el teu nom i la teva data de naixement per veure el teu estat actual.
+        </p>
+
+        <form action="resultat.php" method="post" class="space-y-6">
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2" for="nomusuari">Nom d'usuari</label>
+            <input 
+              type="text" 
+              name="nomusuari" 
+              id="nomusuari" 
+              required 
+              placeholder="Introdueix el teu nom" 
+              class="w-full bg-slate-50 text-gray-900 rounded-full py-4 px-6 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2" for="datanaixement">Data de naixement</label>
+            <input 
+              type="date" 
+              name="datanaixement" 
+              id="datanaixement" 
+              required 
+              class="w-full bg-slate-900/50 text-gray-300 border border-gray-700 rounded-full py-4 px-6 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
+            />
+          </div>
+
+          <button 
+            type="submit" 
+            class="w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-gray-900 font-bold py-4 rounded-full shadow-lg shadow-cyan-900/20 transition-all transform hover:scale-[1.02]"
+          >
+            Calcula ara
+          </button>
+        </form>
+
+        <div class="mt-8 pt-8 border-t border-gray-800 text-center">
+          <p class="text-xs text-gray-600 italic">
+            Tip: guarda el resultat i compara el teu estat amb diferents dates.
+          </p>
+        </div>
+      </section>
+
     </div>
+
   </body>
 </html>
